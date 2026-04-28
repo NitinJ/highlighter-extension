@@ -1,3 +1,9 @@
+.hlx-highlight,
+.hlx-highlight * {
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important;
+  text-shadow: none !important;
+}
 .hlx-highlight {
   border-radius: 2px;
   padding: 0;
