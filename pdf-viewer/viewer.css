@@ -1,0 +1,58 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #525659;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1f2937;
+}
+#topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #1f2937;
+  color: #fff;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+#title { font-weight: 600; }
+#meta { font-size: 11px; color: #9ca3af; word-break: break-all; max-width: 60%; text-align: right; }
+#pages {
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.pdf-page {
+  position: relative;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.pdf-page canvas {
+  display: block;
+}
+.pdf-text-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 1;
+  line-height: 1;
+}
+.pdf-text-layer > span,
+.pdf-text-layer > br {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+}
+.pdf-text-layer ::selection {
+  background: rgba(0, 100, 255, 0.3);
+}

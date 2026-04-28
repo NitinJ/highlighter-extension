@@ -1,0 +1,69 @@
+{
+  "manifest_version": 3,
+  "name": "Highlighter & Commenter",
+  "version": "1.0.0",
+  "description": "Highlight web text in 12 colors and attach floating comments. Local-only, single-user.",
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Highlighter & Commenter",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "run_at": "document_idle",
+      "js": [
+        "content/anchoring.js",
+        "content/highlight.js",
+        "content/comment.js",
+        "content/toolbar.js",
+        "content/orphan-badge.js",
+        "content/content.js"
+      ],
+      "css": ["content/styles.css"],
+      "all_frames": false
+    }
+  ],
+  "commands": {
+    "highlight-selection": {
+      "suggested_key": {
+        "default": "Alt+H"
+      },
+      "description": "Highlight current selection"
+    },
+    "comment-selection": {
+      "suggested_key": {
+        "default": "Alt+C"
+      },
+      "description": "Comment on current selection"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "pdf-viewer/viewer.html",
+        "pdf-viewer/viewer.js",
+        "pdf-viewer/viewer.css",
+        "pdf-viewer/pdf.min.mjs",
+        "pdf-viewer/pdf.worker.min.mjs"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

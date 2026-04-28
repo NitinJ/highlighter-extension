@@ -1,0 +1,98 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  width: 360px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 13px;
+  color: #1f2937;
+  background: #fff;
+}
+#header {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+#title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+#url {
+  font-size: 11px;
+  color: #6b7280;
+  word-break: break-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#list {
+  max-height: 420px;
+  overflow-y: auto;
+}
+.entry {
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #f3f4f6;
+  cursor: pointer;
+}
+.entry:hover { background: #f9fafb; }
+.swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  margin-top: 4px;
+}
+.body { flex: 1; min-width: 0; }
+.quote {
+  font-size: 12px;
+  color: #1f2937;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cmt {
+  font-size: 11px;
+  color: #6b7280;
+  font-style: italic;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#footer {
+  padding: 8px 12px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+#quota {
+  font-size: 11px;
+  color: #6b7280;
+}
+#open-pdf {
+  background: #1f2937;
+  color: #fff;
+  border: 1px solid #1f2937;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+#open-pdf:hover { background: #111827; }
+.empty {
+  padding: 24px 12px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 12px;
+}
+.warn {
+  padding: 8px 12px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 11px;
+  border-bottom: 1px solid #fde68a;
+}
