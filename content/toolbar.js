@@ -22,6 +22,10 @@
       sw.className = 'hlx-tb-swatch';
       sw.style.backgroundColor = c.hex;
       sw.title = c.name;
+      sw.setAttribute('aria-label', c.name);
+      if (ns.highlight.isDarkSwatchColor && ns.highlight.isDarkSwatchColor(c.hex)) {
+        sw.classList.add('hlx-tb-swatch-dark');
+      }
       sw.addEventListener('mousedown', (e) => { e.preventDefault(); e.stopPropagation(); });
       sw.addEventListener('click', (e) => {
         e.stopPropagation();
