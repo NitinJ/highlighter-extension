@@ -13,9 +13,22 @@
     { name: 'Aqua', hex: '#B2EBF2' },
     { name: 'Mint', hex: '#B2DFDB' },
     { name: 'Sage', hex: '#C8E6C9' },
-    { name: 'Lime', hex: '#DCEDC8' }
+    { name: 'Lime', hex: '#DCEDC8' },
+    { name: 'Black', hex: '#000000' }
   ];
   const SLATE = '#94A3B8';
+
+  function isDarkSwatchColor(hex) {
+    if (!hex) return false;
+    const m = /^#?([0-9a-f]{6})$/i.exec(hex.trim());
+    if (!m) return false;
+    const v = parseInt(m[1], 16);
+    const r = (v >> 16) & 0xff;
+    const g = (v >> 8) & 0xff;
+    const b = v & 0xff;
+    const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+    return luminance < 0.25;
+  }
 
   function getTextNodesInRange(range) {
     const nodes = [];
@@ -126,6 +139,8 @@
       sw.className = 'hlx-swatch';
       sw.style.backgroundColor = c.hex;
       sw.title = c.name;
+      sw.setAttribute('aria-label', c.name);
+      if (isDarkSwatchColor(c.hex)) sw.classList.add('hlx-swatch-dark');
       if (c.hex.toLowerCase() === (currentColor || '').toLowerCase()) sw.classList.add('hlx-swatch-active');
       sw.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -204,6 +219,7 @@
   ns.highlight = {
     COLORS,
     SLATE,
+    isDarkSwatchColor,
     wrapRange,
     unwrapHighlight,
     recolor,
