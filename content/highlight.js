@@ -135,6 +135,17 @@
       grid.appendChild(sw);
     });
     pop.appendChild(grid);
+    if (opts.onComment) {
+      const cmt = document.createElement('button');
+      cmt.className = 'hlx-color-comment';
+      cmt.textContent = opts.commentLabel || 'Comment';
+      cmt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        opts.onComment();
+        closeColorPopover();
+      });
+      pop.appendChild(cmt);
+    }
     if (opts.allowDelete) {
       const del = document.createElement('button');
       del.className = 'hlx-color-delete';

@@ -89,10 +89,6 @@
   }
 
   function onAnnotationClick(a) {
-    if (a.comment) {
-      openComment(a);
-      return;
-    }
     const span = document.querySelector(`.hlx-highlight[data-hlx-id="${CSS.escape(a.id)}"]`);
     if (!span) return;
     ns.highlight.showColorPopover(span, a.color, {
@@ -106,7 +102,9 @@
       },
       onDelete: async () => {
         await deleteAnnotation(a);
-      }
+      },
+      onComment: () => openComment(a),
+      commentLabel: a.comment ? 'Edit comment' : 'Add comment'
     });
   }
 
