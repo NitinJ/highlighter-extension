@@ -2,7 +2,6 @@
   const ns = (window.__hlx = window.__hlx || {});
 
   const COLORS = [
-    { name: 'Lemon', hex: '#FFF59D' },
     { name: 'Honey', hex: '#FFE082' },
     { name: 'Apricot', hex: '#FFCC80' },
     { name: 'Coral', hex: '#FFAB91' },
