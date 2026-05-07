@@ -102,6 +102,19 @@
 }
 .hlx-color-delete:hover { background: #fef2f2; }
 
+.hlx-color-comment {
+  margin-top: 8px;
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #374151;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.hlx-color-comment:hover { background: #f9fafb; }
+
 .hlx-toolbar {
   position: absolute;
   z-index: 2147483647;
