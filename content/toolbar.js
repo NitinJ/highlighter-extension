@@ -17,6 +17,9 @@
     toolbar = document.createElement('div');
     toolbar.className = 'hlx-toolbar';
 
+    const grid = document.createElement('div');
+    grid.className = 'hlx-tb-grid';
+
     ns.highlight.COLORS.forEach((c) => {
       const sw = document.createElement('button');
       sw.className = 'hlx-tb-swatch';
@@ -28,8 +31,10 @@
         opts.onColor(c.hex, savedRange);
         close();
       });
-      toolbar.appendChild(sw);
+      grid.appendChild(sw);
     });
+
+    toolbar.appendChild(grid);
 
     const sep = document.createElement('span');
     sep.className = 'hlx-tb-sep';
