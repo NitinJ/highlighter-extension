@@ -13,7 +13,8 @@
     { name: 'Aqua', hex: '#B2EBF2' },
     { name: 'Mint', hex: '#B2DFDB' },
     { name: 'Sage', hex: '#C8E6C9' },
-    { name: 'Lime', hex: '#DCEDC8' }
+    { name: 'Lime', hex: '#DCEDC8' },
+    { name: 'Black', hex: '#000000' }
   ];
   const SLATE = '#94A3B8';
 
