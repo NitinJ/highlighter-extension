@@ -5,7 +5,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = chrome.runtime.getURL('pdf-viewer/pdf.w
 
 const COLORS = [
   '#FFF59D','#FFE082','#FFCC80','#FFAB91','#F8BBD0','#E1BEE7',
-  '#C5CAE9','#B3E5FC','#B2EBF2','#B2DFDB','#C8E6C9','#DCEDC8'
+  '#C5CAE9','#B3E5FC','#B2EBF2','#B2DFDB','#C8E6C9','#DCEDC8','#000000'
 ];
 const SLATE = '#94A3B8';
 

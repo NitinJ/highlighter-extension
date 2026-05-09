@@ -61,6 +61,8 @@
   position: relative;
 }
 .hlx-comment-icon-slate { color: #fff; }
+.hlx-comment-icon[style*="rgb(0, 0, 0)"],
+.hlx-comment-icon[style*="#000000"] { color: #fff !important; }
 
 .hlx-color-popover {
   position: absolute;
@@ -74,7 +76,7 @@
 }
 .hlx-color-grid {
   display: grid;
-  grid-template-columns: repeat(6, 22px);
+  grid-template-columns: repeat(7, 22px);
   gap: 6px;
 }
 .hlx-swatch {
@@ -288,3 +290,28 @@
 }
 .hlx-orphan-btn:hover { background: #f9fafb; }
 .hlx-orphan-btn-danger { color: #b91c1c; border-color: #fee2e2; }
+
+/* Black highlight legibility: invert text to white when span background is black. */
+.hlx-highlight[style*="background-color: rgb(0, 0, 0)"],
+.hlx-highlight[style*="background-color: rgb(0, 0, 0)"] *,
+.hlx-highlight[style*="#000000"],
+.hlx-highlight[style*="#000000"] * {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* Black swatch visibility: add a contrasting outline so the black circle is visible against white. */
+.hlx-swatch[style*="rgb(0, 0, 0)"],
+.hlx-tb-swatch[style*="rgb(0, 0, 0)"],
+.hlx-swatch[style*="#000000"],
+.hlx-tb-swatch[style*="#000000"] {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+/* Black chip visibility: same contrasting outline so a black chip is visible against page text. */
+.hlx-chip[style*="rgb(0, 0, 0)"],
+.hlx-chip[style*="#000000"] {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.18);
+}
