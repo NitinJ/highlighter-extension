@@ -13,7 +13,8 @@
     { name: 'Aqua', hex: '#B2EBF2' },
     { name: 'Mint', hex: '#B2DFDB' },
     { name: 'Sage', hex: '#C8E6C9' },
-    { name: 'Lime', hex: '#DCEDC8' }
+    { name: 'Lime', hex: '#DCEDC8' },
+    { name: 'Black', hex: '#000000' }
   ];
   const SLATE = '#94A3B8';
 
@@ -68,6 +69,9 @@
         span.style.borderBottom = `2px solid ${SLATE}`;
       } else {
         span.style.backgroundColor = color;
+        if (color && ['#000', '#000000'].includes(String(color).toLowerCase())) {
+          span.dataset.dark = '1';
+        }
       }
       target.parentNode.replaceChild(span, target);
       span.appendChild(target);
@@ -94,7 +98,12 @@
 
   function recolor(id, color) {
     const spans = document.querySelectorAll(`.hlx-highlight[data-hlx-id="${CSS.escape(id)}"]`);
-    spans.forEach((s) => { s.style.backgroundColor = color; });
+    const isDark = !!color && ['#000', '#000000'].includes(String(color).toLowerCase());
+    spans.forEach((s) => {
+      s.style.backgroundColor = color;
+      if (isDark) s.dataset.dark = '1';
+      else delete s.dataset.dark;
+    });
     const chip = document.querySelector(`.hlx-chip[data-hlx-id="${CSS.escape(id)}"]`);
     if (chip) chip.style.backgroundColor = color;
     const cmt = document.querySelector(`.hlx-comment-icon[data-hlx-id="${CSS.escape(id)}"]`);
