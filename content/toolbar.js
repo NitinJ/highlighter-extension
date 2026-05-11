@@ -17,6 +17,9 @@
     toolbar = document.createElement('div');
     toolbar.className = 'hlx-toolbar';
 
+    const chips = document.createElement('div');
+    chips.className = 'hlx-tb-chips';
+
     ns.highlight.COLORS.forEach((c) => {
       const sw = document.createElement('button');
       sw.className = 'hlx-tb-swatch';
@@ -28,8 +31,9 @@
         opts.onColor(c.hex, savedRange);
         close();
       });
-      toolbar.appendChild(sw);
+      chips.appendChild(sw);
     });
+    toolbar.appendChild(chips);
 
     const sep = document.createElement('span');
     sep.className = 'hlx-tb-sep';

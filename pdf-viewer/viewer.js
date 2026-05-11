@@ -5,7 +5,8 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = chrome.runtime.getURL('pdf-viewer/pdf.w
 
 const COLORS = [
   '#FFF59D','#FFE082','#FFCC80','#FFAB91','#F8BBD0','#E1BEE7',
-  '#C5CAE9','#B3E5FC','#B2EBF2','#B2DFDB','#C8E6C9','#DCEDC8'
+  '#C5CAE9','#B3E5FC','#B2EBF2','#B2DFDB','#C8E6C9','#DCEDC8',
+  '#000000'
 ];
 const SLATE = '#94A3B8';
 
@@ -216,6 +217,9 @@ function wrapRange(range, id, kind, color) {
     } else {
       span.style.backgroundColor = color;
       span.style.color = color;
+      if (color && ['#000', '#000000'].includes(String(color).toLowerCase())) {
+        span.dataset.dark = '1';
+      }
     }
     target.parentNode.replaceChild(span, target);
     span.appendChild(target);
